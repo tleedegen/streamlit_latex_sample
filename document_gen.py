@@ -38,3 +38,5 @@ if st.session_state['sample_doc']:
         data=st.session_state['sample_doc'],
         file_name="hello_world.pdf",
         mime="application/pdf")
+    
+st.write(st.session_state)
