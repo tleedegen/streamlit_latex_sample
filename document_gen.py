@@ -14,6 +14,7 @@ def generate_hello_world():
 
     # Generate PDF (this will create hello_world.pdf and hello_world.tex)
     doc.generate_pdf(clean_tex=False)
+    return doc
 
 if __name__ == '__main__':
     generate_hello_world()
@@ -21,6 +22,11 @@ if __name__ == '__main__':
 
 st.title("LaTeX PDF Generator")
 if st.button("Generate Hello World PDF"):
-    generate_hello_world()
+    st.session_state["sample_doc"] = generate_hello_world()
     st.success("PDF generated successfully! Check the project directory for 'hello_world.pdf'.")
-    
+
+st.download_button(
+    label="Download Hello World PDF",
+    data=st.session_state['sample_doc'],
+    file_name="hello_world.pdf",
+    mime="application/pdf")
