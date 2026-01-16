@@ -22,12 +22,10 @@ st.title("LaTeX PDF Generator")
 sample_text = st.text_input("Enter text to include in the PDF:", value="Hello World!")
 
 if st.button("Generate Hello World PDF"):
-    try:
-        pdf_bytes = generate_hello_world(sample_text)
-        st.session_state["pdf_bytes"] = pdf_bytes
-        st.success("PDF generated successfully!")
-    except Exception as e:
-        st.error(f"An error occurred: {e}")
+    pdf_bytes = generate_hello_world(sample_text)
+    st.session_state["pdf_bytes"] = pdf_bytes
+    st.success("PDF generated successfully!")
+
 
 # Check if we have bytes in session state to enable the download button
 if "pdf_bytes" in st.session_state:
