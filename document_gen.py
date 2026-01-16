@@ -32,8 +32,9 @@ if st.button("Generate Hello World PDF"):
     st.session_state["sample_doc"] = generate_hello_world(st.session_state['sample_text'])
     st.success("PDF generated successfully! Check the project directory for 'hello_world.pdf'.")
 
-st.download_button(
-    label="Download Hello World PDF",
-    data=st.session_state['sample_doc'],
-    file_name="hello_world.pdf",
-    mime="application/pdf")
+if st.session_state['sample_doc'] is not None:
+    st.download_button(
+        label="Download Hello World PDF",
+        data=st.session_state['sample_doc'],
+        file_name="hello_world.pdf",
+        mime="application/pdf")
