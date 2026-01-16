@@ -13,8 +13,8 @@ def generate_hello_world(sample_text: str="Hello World!"):
             doc.append('This PDF was generated using Python and PyLaTeX.')
 
     # Generate PDF (this will create hello_world.pdf and hello_world.tex)
-    doc.generate_pdf(clean_tex=False)
-    return doc
+    
+    return doc.generate_pdf(clean_tex=False)
 
 if __name__ == '__main__':
     generate_hello_world()
